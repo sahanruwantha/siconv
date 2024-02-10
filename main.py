@@ -27,6 +27,3 @@ def to_sinhala_unicode(input_text):
 
     return "".join(output_array)
 
-input_text = "පහත සඳහන් දෑ සතුන්, ශාක සහ ඛනිජ ලෙස වර්ග කරන්න "
-output_text = to_sinhala_unicode(input_text)
-print(output_text)
