@@ -31,12 +31,3 @@ converted_sinhala = singlish_to_sinhala(singlish_text)
 print("Singlish to Sinhala:", converted_sinhala)
 ```
 
-**Contribution:**
-
-Contributions and feedback are welcomed! If you have ideas for improvements, bug reports, or want to contribute to the development, visit the GitHub repository: [https://github.com/yourusername/siconv](https://github.com/yourusername/siconv)
-
-**License:**
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/yourusername/siconv/blob/main/LICENSE) file for details.
-
----
