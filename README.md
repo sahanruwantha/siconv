@@ -1,11 +1,3 @@
-Great choice! If you've decided on the package name "siconv," here's an updated project description tailored to your chosen name:
-
----
-
-**Project Name: siconv**
-
-**Description:**
-
 The `siconv` Python package simplifies the conversion between Sinhala and Singlish languages. Whether you're dealing with Sinhala text that needs transformation into Singlish or vice versa, `siconv` offers a user-friendly solution.
 
 **Features:**
