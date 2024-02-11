@@ -1,4 +1,4 @@
-from util_array import pillam, charactors
+from util_array import pillam, charactors, vowels
 
 def to_sinhala_unicode(input_text):
     output_array = []
@@ -7,6 +7,8 @@ def to_sinhala_unicode(input_text):
         e_char = charactors.get(char)
         p_char = pillam.get(char)
 
+        is_vowel = char in vowels
+
         if e_char:
             # Preserve spaces
             output_array.append(char if char == ' ' else e_char)
@@ -14,16 +16,16 @@ def to_sinhala_unicode(input_text):
             # Check for pillam and append 'a'
             next_char = input_text[i + 1]
             output_array.append(pillam.get(next_char) or 'a' if e_char and char != ' ' else '')
-        
+
         elif not e_char and not p_char:
             # Character not found in mapping, keep the original character
             output_array.append(char)
-            
-        if char == '්':
-            output_array.pop()
+
+        if is_vowel:
+            if output_array:
+                output_array.pop()
 
     # Add the last character to the output
     output_array.append(charactors.get(input_text[-1], input_text[-1]))
 
     return "".join(output_array)
-
