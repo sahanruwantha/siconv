@@ -1,6 +1,6 @@
 from util_array import pillam, charactors, vowels
 
-def to_sinhala_unicode(input_text):
+def sinhala_to_singlish_unicode(input_text):
     output_array = []
 
     for i, char in enumerate(input_text[:-1]):
