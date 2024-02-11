@@ -1,6 +1,4 @@
-from util_array import pillam, charactors
-
-vowels = ['්', 'ඔ', 'එ', 'ඉ', 'ඊ', 'අ', 'ආ']
+from util_array import pillam, charactors, vowels
 
 def to_sinhala_unicode(input_text):
     output_array = []
