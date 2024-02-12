@@ -4,7 +4,6 @@ The `siconv` Python package simplifies the conversion between Sinhala and Singli
 
 - Convert Sinhala text to Singlish
 - Convert Singlish text to Sinhala
-- Straightforward API for seamless integration into your Python projects
 - Efficient and accurate language conversion algorithms
 - Support for both individual text conversion and batch processing
 
