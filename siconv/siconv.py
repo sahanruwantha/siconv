@@ -1,4 +1,4 @@
-from util_array import pillam, charactors, vowels
+from .util_array import pillam, charactors, vowels
 
 def sinhala_to_singlish(input_text):
     output_array = []
@@ -36,9 +36,3 @@ def sinhala_to_singlish(input_text):
 
     return "".join(output_array)
 
-
-text = "ආයුබෝවන් "
-
-text = sinhala_to_singlish(text)
-
-print(text)
