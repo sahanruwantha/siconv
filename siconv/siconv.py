@@ -1,4 +1,4 @@
-from util_array import pillam, charactors, vowels
+from .util_array import pillam, charactors, vowels
 
 def sinhala_to_singlish(input_text):
     output_array = []
