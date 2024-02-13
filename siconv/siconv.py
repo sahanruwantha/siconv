@@ -2,7 +2,7 @@ from .util_array import pillam, charactors, vowels
 
 def sinhala_to_singlish(input_text):
     output_array = []
-
+    input_text = list(input_text + ' ')
     try:
         for i, char in enumerate(input_text[:-1]):
             e_char = charactors.get(char)
