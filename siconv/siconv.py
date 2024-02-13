@@ -1,5 +1,5 @@
 import re
-from util_array import pillam, charactors, vowels
+from .util_array import pillam, charactors, vowels
 
 text = ""
 nVowels = 0
