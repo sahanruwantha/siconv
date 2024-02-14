@@ -1,5 +1,5 @@
 import re
-from util_array import pillam, charactors, vowels
+from .util_array import pillam, charactors
 
 text = ""
 nVowels = 0
@@ -201,14 +201,18 @@ specialChar.append('ruu')
 specialCharUni.append('ෘ')
 specialChar.append('ru')
 
+vowels = ['අ', 'ආ', 'ඇ', 'ඈ', 'ඉ', 'ඊ', 'උ', 'ඌ', 'ඍ', 'ඎ', 'ඏ', 'ඐ', 'එ', 'ඒ', 'ඓ', 'ඔ', 'ඕ', 'ඖ']
+
+
 def sinhala_to_singlish(input_text):
     output_array = []
-    # input_text = list(input_text + ' ')
+    input_text = list(input_text + ' ')
     try:
-        for i, char in enumerate(input_text):
+        for i, char in enumerate(input_text[:-1]):
             e_char = charactors.get(char)
             p_char = pillam.get(char)
-
+            
+            
             is_vowel = char in vowels
 
             if e_char:
@@ -222,8 +226,8 @@ def sinhala_to_singlish(input_text):
             elif not e_char and not p_char:
                 # Character not found in mapping, keep the original character
                 output_array.append(char)
-
-            if is_vowel:
+            
+            if is_vowel or char == '්':
                 if output_array:
                     output_array.pop()
 
@@ -233,7 +237,6 @@ def sinhala_to_singlish(input_text):
     except Exception as e:
         # Handle exceptions and print an error message
         print(f"An error occurred: {e}")
-        # You can choose to log the exception or handle it in a different way
 
     return "".join(output_array)
 
