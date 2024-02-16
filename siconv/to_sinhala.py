@@ -1,5 +1,4 @@
 import re
-from .util_array import pillam, charactors
 
 text = ""
 nVowels = 0
@@ -201,79 +200,39 @@ specialChar.append('ruu')
 specialCharUni.append('ෘ')
 specialChar.append('ru')
 
-vowels = ['අ', 'ආ', 'ඇ', 'ඈ', 'ඉ', 'ඊ', 'උ', 'ඌ', 'ඍ', 'ඎ', 'ඏ', 'ඐ', 'එ', 'ඒ', 'ඓ', 'ඔ', 'ඕ', 'ඖ']
-
-
-def sinhala_to_singlish(input_text):
-    output_array = []
-    input_text = list(input_text + ' ')
-    try:
-        for i, char in enumerate(input_text[:-1]):
-            e_char = charactors.get(char)
-            p_char = pillam.get(char)
-            
-            
-            is_vowel = char in vowels
-
-            if e_char:
-                # Preserve spaces
-                output_array.append(char if char == ' ' else e_char)
-
-                # Check for pillam and append 'a'
-                next_char = input_text[i + 1]
-                output_array.append(pillam.get(next_char) or 'a' if e_char and char != ' ' else '')
-
-            elif not e_char and not p_char:
-                # Character not found in mapping, keep the original character
-                output_array.append(char)
-            
-            if is_vowel or char == '්':
-                if output_array:
-                    output_array.pop()
-
-        # Add the last character to the output
-        output_array.append(charactors.get(input_text[-1], input_text[-1]))
-
-    except Exception as e:
-        # Handle exceptions and print an error message
-        print(f"An error occurred: {e}")
-
-    return "".join(output_array)
-
-def singlish_to_sinhala(input_text):
-    global text
+def singlish_to_sinhala(text):
+    global consonants, consonantsUni, vowels, vowelsUni, vowelModifiersUni, specialConsonants, specialConsonantsUni, specialCharUni, specialChar
     s = ""
     r = ""
     v = ""
-    text = input_text
+    # special consonants
     for i in range(len(specialConsonants)):
         text = text.replace(specialConsonants[i], specialConsonantsUni[i])
+    # consonents + special Chars
     for i in range(len(specialCharUni)):
         for j in range(len(consonants)):
             s = consonants[j] + specialChar[i]
             v = consonantsUni[j] + specialCharUni[i]
-            r = re.compile(s)
-            text = r.sub(v, text)
+            text = re.sub(s, v, text)
+    # consonents + Rakaransha + vowel modifiers
     for j in range(len(consonants)):
         for i in range(len(vowels)):
             s = consonants[j] + "r" + vowels[i]
             v = consonantsUni[j] + "්‍ර" + vowelModifiersUni[i]
-            r = re.compile(s)
-            text = r.sub(v, text)
+            text = re.sub(s, v, text)
         s = consonants[j] + "r"
         v = consonantsUni[j] + "්‍ර"
-        r = re.compile(s)
-        text = r.sub(v, text)
+        text = re.sub(s, v, text)
+    # consonents + vowel modifiers
     for i in range(len(consonants)):
         for j in range(nVowels):
             s = consonants[i] + vowels[j]
             v = consonantsUni[i] + vowelModifiersUni[j]
-            r = re.compile(s)
-            text = r.sub(v, text)
+            text = re.sub(s, v, text)
+    # consonents + HAL
     for i in range(len(consonants)):
-        r = re.compile(consonants[i])
-        text = r.sub(consonantsUni[i]+"්", text)
+        text = re.sub(consonants[i], consonantsUni[i]+"්", text)
+    # vowels
     for i in range(len(vowels)):
-        r = re.compile(vowels[i])
-        text = r.sub(vowelsUni[i], text)
+        text = re.sub(vowels[i], vowelsUni[i], text)
     return text
