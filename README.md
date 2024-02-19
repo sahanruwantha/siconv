@@ -1,7 +1,3 @@
-Certainly! Here's an improved version of the markdown with better SEO practices:
-
----
-
 # Simplify Sinhala and Singlish Language Conversion with `siconv` Python Package
 
 Unlock efficient and accurate language conversion between Sinhala and Singlish effortlessly using the `siconv` Python package. Whether you need to transform Sinhala text to Singlish or vice versa, `siconv` offers a seamless and user-friendly solution.
