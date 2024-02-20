@@ -21,7 +21,7 @@ vowels = ['අ', 'ආ', 'ඇ', 'ඈ', 'ඉ', 'ඊ', 'උ', 'ඌ', 'ඍ', 'ඎ', 
 
 def sinhala_to_singlish(input_text):
     output_array = []
-    input_text = list(input_text + ' ')
+    input_text += ' '
     try:
         for i, char in enumerate(input_text[:-1]):
             e_char = charactors.get(char)
