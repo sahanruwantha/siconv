@@ -42,5 +42,3 @@ Incorporate `siconv` into the development of Sinhala and Singlish applications, 
 ### 3. Tokenization:
 Enhance custom tokenization processes with `siconv` for accurate and consistent tokenization of Sinhala and Singlish text across diverse language-specific tasks.
 
-Empower your projects with the versatility of `siconv`, not only streamlining language conversion but also contributing to the broader landscape of natural language processing in Sinhala and Singlish.
-
